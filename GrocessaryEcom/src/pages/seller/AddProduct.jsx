@@ -23,9 +23,9 @@ const AddProduct = () => {
                             <label key={index} htmlFor={`image${index}`}>
                                 <input onChange={(e)=>{
                                     const updatedFiles = [...files];
-                                    updatedFiles[index]= e.targetfiles[0]
+                                    updatedFiles[index]= e.target.files[0]
                                     setFiles(updatedFiles)
-                                }} accept="image/*" type="file" id={`image${index}`} hidden />
+                                }} type="file" id={`image${index}`} hidden />
                                 <img className="max-w-24 cursor-pointer" src={files[index] ? URL.createObjectURL(files[index]) : assets.upload_area } alt="uploadArea" width={100} height={100} />
                             </label>
                         ))}
@@ -58,11 +58,13 @@ const AddProduct = () => {
                         <input onChange={(e)=> setOfferPrice(e.target.value)} value={offerprice} id="offer-price" type="number" placeholder="0" className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40" required />
                     </div>
                 </div>
-                <button className="px-8 py-2.5 bg-indigo-500 text-white font-medium rounded">ADD</button>
+                <button className="px-8 py-2.5 bg-primary text-white font-medium rounded cursor-pointer">ADD</button>
             </form>
         </div>
     );
 };
   
+
+
 
 export default AddProduct
